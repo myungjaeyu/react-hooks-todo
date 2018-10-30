@@ -22,12 +22,13 @@
         const Todo = _ => {
 
             const [text, setText] = useState('')
+            const [todos, setTodos] = useState([])
 
             const input = ({ target : { value } }) => setText(value)
 
             const send = ({ key }) => key === 'Enter' && add()
 
-            const add = () => text && (console.log(text), setText(''))
+            const add = _ => text && (setTodos(todos.concat( [text] )), setText(''))
 
             return (
                 <div>
@@ -35,6 +36,10 @@
                     <input value={ text } onChange={ input } onKeyPress={ send } />
 
                     <button onClick={ add }> add </button>
+
+                    <ul>
+                        { todos.map((e, i) => <li key={ i }> { e } </li>) }
+                    </ul>
 
                 </div>
             )
