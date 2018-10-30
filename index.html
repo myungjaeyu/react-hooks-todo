@@ -16,14 +16,23 @@
 
     <script type="text/babel">
 
-        const { Component } = React
+        const { Component, useState } = React
 
 
         const Todo = _ => {
 
+            const [text, setText] = useState('')
+
+            const input = ({ target : { value } }) => setText(value)
+
             return (
                 <div>
-                    Todo
+                    
+                    <input
+                        value={ text }
+                        onChange={ input }
+                    />
+
                 </div>
             )
 
