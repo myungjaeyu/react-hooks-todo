@@ -25,16 +25,16 @@
 
             const input = ({ target : { value } }) => setText(value)
 
-            const send = ({ key }) => key === 'Enter' && console.log(text)
+            const send = ({ key }) => key === 'Enter' && add()
+
+            const add = () => text && (console.log(text), setText(''))
 
             return (
                 <div>
-                    
-                    <input
-                        value={ text }
-                        onChange={ input }
-                        onKeyPress={ send }
-                    />
+
+                    <input value={ text } onChange={ input } onKeyPress={ send } />
+
+                    <button onClick={ add }> add </button>
 
                 </div>
             )
