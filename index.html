@@ -25,12 +25,15 @@
 
             const input = ({ target : { value } }) => setText(value)
 
+            const send = ({ key }) => key === 'Enter' && console.log(text)
+
             return (
                 <div>
                     
                     <input
                         value={ text }
                         onChange={ input }
+                        onKeyPress={ send }
                     />
 
                 </div>
